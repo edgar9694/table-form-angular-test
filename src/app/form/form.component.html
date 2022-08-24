@@ -1,0 +1,101 @@
+<section class="col-md-6 col-xl-4 mx-auto card p-4">
+  <form [formGroup]="form">
+    <div class="mb-4">
+      <label for="name" class="form-label">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        id="name"
+        placeholder="Ingrese un nombre"
+      />
+      <div
+        class="invalid-feedback"
+        [ngClass]="{
+          'd-block':
+            formControl['name'].hasError('required') &&
+            formControl['name'].touched
+        }"
+        *ngIf="
+          formControl['name'].hasError('required') &&
+          formControl['name'].touched
+        "
+      >
+        Ingrese un nombre
+      </div>
+    </div>
+    <div class="mb-4">
+      <label for="age" class="form-label">Edad</label>
+      <input
+        type="number"
+        class="form-control"
+        formControlName="age"
+        id="age"
+        placeholder="Ingrese su edad"
+      />
+      <div
+        class="invalid-feedback"
+        [ngClass]="{
+          'd-block':
+            formControl['age'].hasError('required') &&
+            formControl['age'].touched
+        }"
+        *ngIf="
+          formControl['age'].hasError('required') && formControl['age'].touched
+        "
+      >
+        Ingrese su edad
+      </div>
+    </div>
+    <div class="mb-4">
+      <label for="name" class="form-label">Correo electrónico</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        id="email"
+        placeholder="Ingrese su correo"
+      />
+      <div
+        class="invalid-feedback"
+        [ngClass]="{
+          'd-block':
+            formControl['email'].hasError('required') &&
+            formControl['email'].touched
+        }"
+        *ngIf="
+          formControl['email'].hasError('required') &&
+          formControl['email'].touched
+        "
+      >
+        Ingrese su correo
+      </div>
+      <div
+        class="invalid-feedback"
+        [ngClass]="{
+          'd-block':
+            formControl['email'].hasError('email') &&
+            formControl['email'].touched
+        }"
+        *ngIf="
+          formControl['email'].hasError('email') && formControl['email'].touched
+        "
+      >
+        correo inválido
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-primary" type="submit" (click)="onSubmit()">
+        Mostrar Datos
+      </button>
+    </div>
+  </form>
+
+  <span class="bg-secondary mx-auto card p-4 text-light" *ngIf="this.submitted">
+    <p>Nombre: {{ formValue.name }}</p>
+
+    <p>Edad: {{ formValue.age }}</p>
+
+    <p>Correo: {{ formValue.email }}</p>
+  </span>
+</section>

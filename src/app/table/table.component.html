@@ -1,0 +1,20 @@
+<section class="col-12 col-md-10 col-xl-6 mx-auto card p-4 table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Carrera</th>
+        <th scope="col">Pasatiempo</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let item of dataTable">
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.edad }}</td>
+        <td>{{ item.carrera }}</td>
+        <td>{{ item.hobbie }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
